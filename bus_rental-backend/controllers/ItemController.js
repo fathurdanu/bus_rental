@@ -16,7 +16,7 @@ class ItemController {
             let result = await Item.findOne({ where: { id },include: [User,Brand]});
             (result)?res.json(result):res.json({message:`Item id ${id} was not found`});
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error });
         }
     }
 
@@ -32,7 +32,7 @@ class ItemController {
             });
             result ? res.json(result) : res.json({ message: 'Failed to add item' });
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error });
         }
     }
 
@@ -53,7 +53,7 @@ class ItemController {
                 res.json({ message: "Item was successfully updated." }) :
                 res.json({ message: 'Failed to edit item' });
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error });
         }
     }
 

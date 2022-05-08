@@ -16,7 +16,7 @@ class BrandController {
             let result = await Brand.findOne({ where: { id } });
             (result)?res.json(result):res.json({message:`Brand id ${id} was not found`});
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error });
         }
     }
 
@@ -29,7 +29,7 @@ class BrandController {
             });
             result ? res.json(result) : res.json({ message: 'Failed to add brand' });
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error});
         }
 
     }
@@ -48,7 +48,7 @@ class BrandController {
                 res.json({ message: "Brand was successfully updated." }) :
                 res.json({ message: 'Failed to edit brand' });
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error});
         }
     }
 

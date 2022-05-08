@@ -16,7 +16,7 @@ class UserController {
             let result = await User.findOne({ where: { id } });
             (result)?res.json(result):res.json({message:`user id ${id} was not found`});
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error });
         }
     }
 
@@ -28,7 +28,7 @@ class UserController {
             });
             result ? res.json(result) : res.json({ message: 'Failed to add user' });
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error });
         }
     }
 
@@ -45,7 +45,7 @@ class UserController {
                 res.json({ message: "User was successfully updated." }) :
                 res.json({ message: 'Failed to edit user' });
         } catch (error) {
-            res.json({ message: error.errors[0].message });
+            res.json({ message: error });
         }
     }
 
