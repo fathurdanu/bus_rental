@@ -1,6 +1,6 @@
 # API Documentation
 
-## Heroku Link
+## Base URL
 ```
 http://bus-rent.herokuapp.com
 http://localhost:3000
