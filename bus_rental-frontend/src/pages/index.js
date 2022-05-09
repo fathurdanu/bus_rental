@@ -1,8 +1,12 @@
 import HomePage from './HomePage';
-import BrandPage from './BrandPage';
-import UserPage from './UserPage';
-import ListBrandPage from './ListBrandPage';
-import AddBrandPage from './AddBrandPage';
-import EditBrandPage from './EditBrandPage';
+import AddItemPage from './Items/AddItemPage';
+import EditItemPage from './Items/EditItemPage';
 
-export {HomePage, BrandPage, UserPage, ListBrandPage, AddBrandPage, EditBrandPage};
+import BrandPage from './Brands/BrandPage';
+import ListBrandPage from './Brands/ListBrandPage';
+import AddBrandPage from './Brands/AddBrandPage';
+import EditBrandPage from './Brands/EditBrandPage';
+
+import UserPage from './UserPage';
+
+export {HomePage, AddItemPage, EditItemPage, BrandPage, UserPage, ListBrandPage, AddBrandPage, EditBrandPage};

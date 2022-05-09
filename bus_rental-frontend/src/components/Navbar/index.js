@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className='navbar-item h5'>
                 <ul>
                     <li><Link to='/brands'>Brand</Link></li>
-                    <li><Link to='/users'>User</Link></li>
+                    {/* <li><Link to='/users'>User</Link></li> */}
                     <li><Link to='/'>Home</Link></li>
                 </ul>
             </div>

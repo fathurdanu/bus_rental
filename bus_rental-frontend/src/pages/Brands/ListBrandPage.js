@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { getBrands, deleteBrand } from '../axios/brandRepo';
-import LoadingBar from '../helpers/LoadingBar';
+import { getBrands, deleteBrand } from '../../axios/brandRepo';
+import LoadingBar from '../../helpers/LoadingBar';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
@@ -9,10 +9,11 @@ function ListBrandPage() {
 
     useEffect(() => {
         getBrands(result => setBrands(result))
-    })
+    }, [brands.length])
 
-    const deleteHandler =(id) => {
-        deleteBrand(id);
+    const deleteHandler = async (id) => {
+        await deleteBrand(id);
+        getBrands(result => setBrands(result))
     }
 
     return (
@@ -39,7 +40,7 @@ function ListBrandPage() {
                                         </div>
                                         <div className="col-6 text-center">
                                             <button
-                                                onClick={()=> deleteHandler(+id)}
+                                                onClick={() => deleteHandler(+id)}
                                                 className="btn btn-danger">
                                                 Delete
                                             </button>

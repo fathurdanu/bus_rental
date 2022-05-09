@@ -1,5 +1,11 @@
 # API Documentation
 
+## Base URL
+```
+http://bus-rent.herokuapp.com
+http://localhost:3000
+```
+
 ## User Table
 
 `GET /users`

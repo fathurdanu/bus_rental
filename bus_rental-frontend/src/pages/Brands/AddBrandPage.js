@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {addBrand} from '../axios/brandRepo'
+import {addBrand} from '../../axios/brandRepo'
 import {useNavigate} from 'react-router-dom';
 
 function AddBrandPage() {
@@ -14,11 +14,11 @@ function AddBrandPage() {
         addBrand(form);
         navigation('/brands');
     }
+    
 
     return (
         <>
             <div className=''><h5>Add Brand</h5></div>
-            <form action="/menus/create" method="POST">
                 <div className="form-group row mb-3">
                     <label className="col-sm-2 col-form-label">Name:</label>
                     <div className="col-sm-5">
@@ -53,7 +53,6 @@ function AddBrandPage() {
                         Submit
                     </button>
                 </div>
-            </form>
         </>
     )
 }

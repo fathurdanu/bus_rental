@@ -1,43 +1,43 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-const URL = 'http://localhost:3000/brands';
+const URL = 'http://localhost:3000/users';
 
-const getBrands = async (callback) => {
+const getUsers = async (callback) => {
     try {
-        let brands = await axios({
+        let users = await axios({
             method: 'GET',
             url: URL
         })
-        callback(brands.data);
+        callback(users.data);
     } catch (error) {
         console.log(error);
     }
 }
 
-const getBrand = async (id, callback) => {
+const getUser = async (id, callback) => {
     try {
-        let brand = await axios({
+        let user = await axios({
             method: 'GET',
             url: URL + '/' + id
         })
-        callback(brand.data);
+        callback(user.data);
     } catch (error) {
         console.log(error);
     }
 }
 
-const addBrand = async (brand) => {
+const addUser = async (user) => {
     try {
         let result = await axios({
             method: 'POST',
             url: URL + '/add',
-            data: brand
+            data: user
         })
         if(result)
         Swal.fire(
-            'Add Brand',
-            'Brand has been added',
+            'Add User',
+            'User has been added',
             'success'
         );
     } catch (error) {
@@ -45,16 +45,16 @@ const addBrand = async (brand) => {
     }
 }
 
-const editBrand = async (id, brand) => {
+const editUser = async (id, user) => {
     try {
         await axios({
             method: 'PUT',
             url: URL + '/edit/' + id,
-            data: brand
+            data: user
         })
         Swal.fire(
-            'Edit Brand',
-            'Brand has been edited',
+            'Edit User',
+            'User has been edited',
             'success'
         )
     } catch (error) {
@@ -62,7 +62,7 @@ const editBrand = async (id, brand) => {
     }
 }
 
-const deleteBrand = async (id) => {
+const deleteUser = async (id) => {
     try {
 
         await Swal.fire({
@@ -97,5 +97,5 @@ const deleteBrand = async (id) => {
 
 
 export {
-    getBrands, getBrand, addBrand, editBrand, deleteBrand
+    getUsers, getUser, addUser, editUser, deleteUser
 }

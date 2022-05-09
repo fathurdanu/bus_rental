@@ -1,43 +1,43 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-const URL = 'http://localhost:3000/brands';
+const URL = 'http://localhost:3000/items';
 
-const getBrands = async (callback) => {
+const getItems = async (callback) => {
     try {
-        let brands = await axios({
+        let items = await axios({
             method: 'GET',
             url: URL
         })
-        callback(brands.data);
+        callback(items.data);
     } catch (error) {
         console.log(error);
     }
 }
 
-const getBrand = async (id, callback) => {
+const getItem = async (id, callback) => {
     try {
-        let brand = await axios({
+        let item = await axios({
             method: 'GET',
             url: URL + '/' + id
         })
-        callback(brand.data);
+        callback(item.data);
     } catch (error) {
         console.log(error);
     }
 }
 
-const addBrand = async (brand) => {
+const addItem = async (item) => {
     try {
         let result = await axios({
             method: 'POST',
             url: URL + '/add',
-            data: brand
+            data: item
         })
         if(result)
         Swal.fire(
-            'Add Brand',
-            'Brand has been added',
+            'Add Item',
+            'Item has been added',
             'success'
         );
     } catch (error) {
@@ -45,16 +45,16 @@ const addBrand = async (brand) => {
     }
 }
 
-const editBrand = async (id, brand) => {
+const editItem = async (id, item) => {
     try {
         await axios({
             method: 'PUT',
             url: URL + '/edit/' + id,
-            data: brand
+            data: item
         })
         Swal.fire(
-            'Edit Brand',
-            'Brand has been edited',
+            'Edit Item',
+            'Item has been edited',
             'success'
         )
     } catch (error) {
@@ -62,7 +62,7 @@ const editBrand = async (id, brand) => {
     }
 }
 
-const deleteBrand = async (id) => {
+const deleteItem = async (id) => {
     try {
 
         await Swal.fire({
@@ -75,17 +75,16 @@ const deleteBrand = async (id) => {
             confirmButtonText: 'Yes, delete it!'
         }).then( async (result) => {
             if (result.isConfirmed) {
-                
-                await axios({
+                let result = await axios({
                     method: 'DELETE',
                     url: URL + '/delete/' + id,
                 })
+                if (result===1)
                 Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
                     'success'
                 )
-            
             }
         })
     } catch (error) {
@@ -97,5 +96,5 @@ const deleteBrand = async (id) => {
 
 
 export {
-    getBrands, getBrand, addBrand, editBrand, deleteBrand
+    getItems, getItem, addItem, editItem, deleteItem
 }
